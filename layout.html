@@ -5,7 +5,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flex Layout with Sticky Top Menu</title>
+<style>
+          body,
+        html {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          font-family: Arial, sans-serif;
+        }
 
+        .container {
+
+          display: flex;
+          min-height: 100vh;
+          /* Adjust to fit the viewport height */
+
+          overflow: auto;
+          /* Show scrollbar for the entire page when needed */
+        }
+
+        .left-menu {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          background-color: #4CAF50;
+          /* Green */
+          padding: 20px;
+          box-sizing: border-box;
+          height: calc(100vh - 1px);
+
+
+
+        }
+
+        .left-menu .logo {
+          flex-grow: 0;
+        }
+
+        .left-menu .support-box {
+          flex-grow: 0;
+          margin-top: auto;
+          /* Pushes the support box to the bottom */
+        }
+
+        .content-area {
+          flex: 3;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .top-menu {
+          position: sticky;
+          top: 0;
+          background-color: #2196F3;
+          /* Blue */
+          padding: 20px;
+          z-index: 1000;
+        }
+
+        .content-row {
+          display: flex;
+          flex-grow: 1;
+          overflow: hidden;
+          min-height: calc(100vh - 57px);
+          /* Fixes flexbox overflow issues in some browsers */
+
+        }
+
+        .main-content,
+        .right-sidebar {
+          padding: 20px;
+        }
+
+        .main-content {
+          flex: 3;
+          background-color: #f8f9fa;
+          /* Light grey */
+          padding: 20px;
+          overflow-y: auto;
+          /* Enables vertical scrolling */
+          max-height: 100vh;
+          /* Maximum height to enable scrolling */
+          box-sizing: border-box;
+          /* Includes padding in the height calculation */
+        }
+
+        .right-sidebar {
+          flex: 1;
+          background-color: #FFC107;
+          /* Amber */
+          padding: 20px;
+        }
+</style>
   </head>
 
   <body>
